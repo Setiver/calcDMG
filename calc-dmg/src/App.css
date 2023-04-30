@@ -18,59 +18,57 @@ body {
   transform: translate(-50%, -50%);
 }
 /* positioning of inputs*/
-/* barrier */
-.barrier-text {
+.barrier-text,
+.armor-text,
+.hp-text,
+.damage-text,
+.resist-text {
   position: relative;
   bottom: 1%;
   font-size: 3rem;
   text-align: center;
 }
 
-.barrier-input {
+.barrier-input,
+.armor-input,
+.hp-input,
+.damage-input,
+.resist-input {
   position: relative;
 }
 
 .barrier-container {
   position: absolute;
-  right: 20%;
+  right: 10%;
   top: 34%;
   transform: translate(-50%, -50%);
 }
 
-/* armor */
-
-.armor-text {
-  position: relative;
-  bottom: 1%;
-  font-size: 3rem;
-  text-align: center;
-}
-
-.armor-input {
-  position: relative;
-}
 .armor-container {
   position: absolute;
-  right: 20%;
+  right: 10%;
   top: 47%;
   transform: translate(-50%, -50%);
 }
 
-/* hp */
-.hp-text {
-  position: relative;
-  bottom: 1%;
-  font-size: 3rem;
-  text-align: center;
-}
-
-.hp-input {
-  position: relative;
-}
 .hp-container {
   position: absolute;
-  right: 20%;
+  right: 10%;
   top: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.damage-container {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.resist-container {
+  position: absolute;
+  top: 55%;
+  left: 20%;
   transform: translate(-50%, -50%);
 }
 
@@ -80,6 +78,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+/* this one is for mozilla */
 input[type='number'] {
   -moz-appearance: textfield;
 }
@@ -87,7 +86,7 @@ input[type='number'] {
 /* input look */
 .input-look {
   padding: 7px;
-  width: 10rem;
+  width: 14rem;
   height: 2rem;
   font-size: 25px;
   border-width: 2px;
@@ -97,5 +96,38 @@ input[type='number'] {
   border-style: solid;
   border-radius: 2px;
   box-shadow: 0px 0px 12px rgba(66, 66, 66, 0.61);
-  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);
+}
+
+.button-look {
+  color: white;
+  font-size: 20px;
+  font-family: inherit;
+  padding: 10px 60px;
+  border-radius: 5px;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
+.barier-button {
+  background-color: rgb(0, 103, 141);
+  position: absolute;
+  top: 18%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.armor-button {
+  background-color: rgb(136, 136, 136);
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hp-button {
+  background-color: rgb(163, 0, 0);
+  position: absolute;
+  top: 18%;
+  left: 60%;
+  transform: translate(-50%, -50%);
 }
