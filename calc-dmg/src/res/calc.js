@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import human from './img/human.png';
 
 const CalcDMG = () => {
@@ -8,10 +8,13 @@ const CalcDMG = () => {
   const [hpValue, setHpValue] = useState('');
   const [damageValue, setDamageValue] = useState('');
   const [resistValue, setResistValue] = useState('');
+
+  // buttons for barier,armor,hp
   const [buttonValueBarier, setButtonValueBarier] = useState('');
   const [buttonValueArmor, setButtonValueArmor] = useState('');
   const [buttonValueHP, setButtonValueHP] = useState('');
 
+  // set useState with value
   function onChangeHandler(event, seter) {
     seter(Number(event.target.value));
     // console.log(Number(event.target.value));
@@ -21,17 +24,28 @@ const CalcDMG = () => {
   function handlerKeyDown(event, selector, color, setValueButton, valueButton) {
     if (event.key === 'Enter') {
       event.preventDefault();
-      document.querySelector(selector).style.backgroundColor = color;
-      setValueButton(valueButton);
+      if (valueButton > 0) {
+        document.querySelector(selector).style.backgroundColor = color;
+        setValueButton(valueButton);
+      }
     }
   }
+
+  const damageReduct = () => {
+    if (resistValue > 0) {
+      setDamageValue(Math.trunc(damageValue * (resistValue / 100)));
+    }
+    if (resistValue <= 0) {
+      setDamageValue(damageValue);
+    }
+  };
 
   const damageOnClick = event => {
     const clickOfButton = event.target;
     const barierButton = document.querySelector('.barier-button');
     const armorButton = document.querySelector('.armor-button');
     const hpButton = document.querySelector('.hp-button');
-    console.log(clickOfButton);
+
     if (clickOfButton === barierButton) {
       setButtonValueBarier(buttonValueBarier - damageValue);
     }
@@ -141,11 +155,13 @@ const CalcDMG = () => {
 
       {/* -----------------Resistance----------------- */}
       <div className="resist-container">
-        <p className="resist-text">Resistance</p>
+        <p className="resist-text">Resist.%</p>
         <input
           type="number"
           className="resist-input input-look"
           onChange={event => onChangeHandler(event, setResistValue)}
+          onClick={damageReduct}
+          placeholder="%"
           value={resistValue}
         />
       </div>
