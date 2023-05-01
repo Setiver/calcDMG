@@ -33,7 +33,7 @@ const CalcDMG = () => {
 
   const damageReduct = () => {
     if (resistValue > 0) {
-      setDamageValue(Math.trunc(damageValue * (resistValue / 100)));
+      setDamageValue(Math.trunc(damageValue - damageValue * (resistValue * 0.01)));
     }
     if (resistValue <= 0) {
       setDamageValue(damageValue);
