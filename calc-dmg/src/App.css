@@ -22,7 +22,8 @@ body {
 .armor-text,
 .hp-text,
 .damage-text,
-.resist-text {
+.resist-text,
+.burn-text {
   position: relative;
   bottom: 1%;
   font-size: 3rem;
@@ -33,7 +34,8 @@ body {
 .armor-input,
 .hp-input,
 .damage-input,
-.resist-input {
+.resist-input,
+.burn-input {
   position: relative;
 }
 
@@ -72,6 +74,14 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.burn-container {
+  position: absolute;
+  bottom: 3%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  color: red;
+}
+
 /* hide arrows from input */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -98,6 +108,10 @@ input[type='number'] {
   box-shadow: 0px 0px 12px rgba(66, 66, 66, 0.61);
 }
 
+.burn-input {
+  width: 5rem;
+}
+
 /* buttons that show up */
 .barier-button {
   background-color: rgb(0, 103, 141);
@@ -111,7 +125,7 @@ input[type='number'] {
   background-color: rgb(136, 136, 136);
   position: absolute;
   top: 18%;
-  left: 50%;
+  left: 49.4%;
   transform: translate(-50%, -50%);
 }
 
@@ -119,7 +133,7 @@ input[type='number'] {
   background-color: rgb(163, 0, 0);
   position: absolute;
   top: 18%;
-  left: 60%;
+  left: 58.8%;
   transform: translate(-50%, -50%);
 }
 
@@ -131,4 +145,50 @@ input[type='number'] {
   border-radius: 5px;
   margin: 10px 10px;
   cursor: pointer;
+}
+
+.reset-button {
+  background-color: rgb(0, 0, 0);
+}
+
+/* list of all damages */
+.list-group-item {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  list-style: none;
+  display: block;
+  font-size: 1.2rem;
+}
+
+.list-group {
+  position: absolute;
+  text-align: center;
+  background-color: black;
+  color: white;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  height: 22rem;
+  width: 12rem;
+}
+
+.full-damage-text-up {
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: #646464 2px solid;
+}
+
+.button-list-damage {
+  background-color: #000000;
+  border: #ffffff 1px solid;
+  position: absolute;
+  right: 2.5%;
+  top: 78%;
+}
+
+.full-damage-list-div {
+  top: 47%;
+  left: 35%;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
