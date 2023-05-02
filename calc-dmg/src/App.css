@@ -237,7 +237,7 @@ input[type='number'] {
   transform: translate(-50%, -50%);
   color: #ffffff;
 
-  background-image: linear-gradient(-45deg, #ff1b1b, #c70000, #b70000, #ff2121);
+  background-image: linear-gradient(-45deg, #ff1b1b, #c70000, #ff2121, #b70000, #ff2121);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
