@@ -14,17 +14,20 @@ const CalcDMG = () => {
   const [hpValue, setHpValue] = useState('');
   const [damageValue, setDamageValue] = useState('');
 
-  // storing resists of inputs
-  const [resistValueDamage, setResistValueDamage] = useState('');
-  const [resistValueBurn, setResistValueBurn] = useState('');
-
   // storing values of addicional damage
-
   const [burnDamageValue, setBurnDamageValue] = useState('');
   const [coldDamageValue, setColdDamageValue] = useState('');
   const [poisonDamageValue, setPoisonDamageValue] = useState('');
   const [bleedDamageValue, setBleedDamageValue] = useState('');
   const [voidDamageValue, setVoidDamageValue] = useState('');
+
+  // storing resists of inputs
+  const [resistValueDamage, setResistValueDamage] = useState('');
+  const [resistValueBurn, setResistValueBurn] = useState('');
+  const [resistValueCold, setResistValueCold] = useState('');
+  const [resistValuePoison, setResistValuePoison] = useState('');
+  const [resistValueBleed, setResistValueBleed] = useState('');
+  const [resistValueVoid, setResistValueVoid] = useState('');
 
   // add all damage to one value
   const [fullValueDamage, setFullValueDamage] = useState(0);
@@ -35,16 +38,25 @@ const CalcDMG = () => {
   const [historyHolderHP, setHistoryHolderHP] = useState([]);
   // ---------------------------------- //
 
+  // keep all resists for reset button
+  const resistsAllHolder = () => {
+    setResistValueDamage('');
+    setResistValueBurn('');
+    setResistValueCold('');
+    setResistValuePoison('');
+    setResistValueBleed('');
+    setResistValueVoid('');
+  };
+
   // keep all damage for reset button
   const damageAllHolder = () => {
     setDamageValue('');
-    setResistValueDamage('');
     setBurnDamageValue('');
     setColdDamageValue('');
     setPoisonDamageValue('');
     setBleedDamageValue('');
     setVoidDamageValue('');
-    setResistValueBurn('');
+    resistsAllHolder();
   };
 
   // reset button => set all to be empty
@@ -59,17 +71,18 @@ const CalcDMG = () => {
     setHistoryHolderArmor([]);
     setHistoryHolderHP([]);
     damageAllHolder();
+    resistsAllHolder();
+  };
+
+  // reset button => set damage to be empty
+  const resetOnClickDamage = () => {
+    damageAllHolder();
+    resistsAllHolder();
   };
 
   // set useState with value
   const onChangeHandler = (event, seter) => {
     seter(Number(event.target.value));
-  };
-
-  // reset button => set damage to be empty
-
-  const resetOnClickDamage = () => {
-    damageAllHolder();
   };
 
   // change color of input whene hit Enter and give button a value
@@ -101,10 +114,10 @@ const CalcDMG = () => {
           damageValue -
             damageValue * (resistValueDamage * 0.01) -
             -(burnDamageValue - burnDamageValue * (resistValueBurn * 0.01)) -
-            -coldDamageValue -
-            -poisonDamageValue -
-            -bleedDamageValue -
-            -voidDamageValue
+            -(coldDamageValue - coldDamageValue * (resistValueCold * 0.01)) -
+            -(poisonDamageValue - poisonDamageValue * (resistValuePoison * 0.01)) -
+            -(bleedDamageValue - bleedDamageValue * (resistValueBleed * 0.01)) -
+            -(voidDamageValue - voidDamageValue * (resistValueVoid * 0.01))
         )
       )
     );
@@ -114,9 +127,13 @@ const CalcDMG = () => {
     burnDamageValue,
     resistValueBurn,
     coldDamageValue,
+    resistValueCold,
     poisonDamageValue,
+    resistValuePoison,
     bleedDamageValue,
+    resistValueBleed,
     voidDamageValue,
+    resistValueVoid,
   ]);
 
   // damage on buttons
@@ -150,7 +167,12 @@ const CalcDMG = () => {
     return <div>{historia}</div>;
   };
 
-  // ---------------------------------- //
+  // -------------------------------------------------------------------- //
+  // -------------------------------------------------------------------- //
+  // -------------------------------------------------------------------- //
+  // -------------------------------------------------------------------- //
+  // -------------------------------------------------------------------- //
+  // -------------------------------------------------------------------- //
 
   return (
     <>
@@ -277,10 +299,8 @@ const CalcDMG = () => {
       </button>
       {/* -----------------DamageList----------------- */}
       <div className="full-damage-list-div">
-        <ul className="list-group">
-          <li>
-            <p className="full-damage-text-up">DAMAGE</p>
-          </li>
+        <ul className="list-group left">
+          <p className="full-damage-text-up">DAMAGE</p>
           {damageValue > 0 ? <li className="list-group-item">⚔ Damage: {damageValue}</li> : ''}
           {resistValueDamage > 0 ? (
             <li className="list-group-item">🛡 Resistance: {resistValueDamage}%</li>
@@ -302,8 +322,18 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
+          {resistValueCold > 0 ? (
+            <li className="list-group-item">🧥 Cold Res: {resistValueCold}%</li>
+          ) : (
+            ''
+          )}
           {poisonDamageValue > 0 ? (
             <li className="list-group-item">🧪 Poison: {poisonDamageValue}</li>
+          ) : (
+            ''
+          )}
+          {resistValuePoison > 0 ? (
+            <li className="list-group-item">💊 Poison Res: {resistValuePoison}%</li>
           ) : (
             ''
           )}
@@ -312,16 +342,26 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
+          {resistValueBleed > 0 ? (
+            <li className="list-group-item">🩹 Bleed Res: {resistValueBleed}%</li>
+          ) : (
+            ''
+          )}
           {voidDamageValue > 0 ? (
             <li className="list-group-item"> 👾 Void: {voidDamageValue}</li>
           ) : (
             ''
           )}
+          {resistValueVoid > 0 ? (
+            <li className="list-group-item">🖕 Void Res: {resistValueVoid}%</li>
+          ) : (
+            ''
+          )}
           {/* -----------------ValueShowButton----------------- */}
-          <button className="button-list-damage button-look">
-            {fullValueDamage ? fullValueDamage : '0'}
-          </button>
         </ul>
+        <button className="button-list-damage move button-look">
+          {fullValueDamage ? fullValueDamage : '0'}
+        </button>
       </div>
 
       {/* -----------------HostoryDamageList----------------- */}
@@ -369,6 +409,17 @@ const CalcDMG = () => {
           value={coldDamageValue}
         />
       </div>
+      <div className={`cold-container-resist ${coldDamageValue > 0 ? 'show' : ''}`}>
+        <p className="text-up">🧥</p>
+        <input
+          type="number"
+          className="additional-damage  input-look"
+          onChange={event => onChangeHandler(event, setResistValueCold)}
+          placeholder="0"
+          value={resistValueCold}
+        />
+      </div>
+
       {/* -----------------Poison----------------- */}
       <div className="poison-container">
         <p className="text-up">🧪</p>
@@ -378,6 +429,16 @@ const CalcDMG = () => {
           onChange={event => onChangeHandler(event, setPoisonDamageValue)}
           placeholder="0"
           value={poisonDamageValue}
+        />
+      </div>
+      <div className={`poison-container-resist ${poisonDamageValue > 0 ? 'show' : ''}`}>
+        <p className="text-up">💊</p>
+        <input
+          type="number"
+          className="additional-damage  input-look"
+          onChange={event => onChangeHandler(event, setResistValuePoison)}
+          placeholder="0"
+          value={resistValuePoison}
         />
       </div>
       {/* -----------------Bleed----------------- */}
@@ -391,6 +452,16 @@ const CalcDMG = () => {
           value={bleedDamageValue}
         />
       </div>
+      <div className={`bleed-container-resist ${bleedDamageValue > 0 ? 'show' : ''}`}>
+        <p className="text-up">🩹</p>
+        <input
+          type="number"
+          className="additional-damage  input-look"
+          onChange={event => onChangeHandler(event, setResistValueBleed)}
+          placeholder="0"
+          value={resistValueBleed}
+        />
+      </div>
       {/* -----------------Void----------------- */}
       <div className="void-container">
         <p className="text-up">👾</p>
@@ -400,6 +471,16 @@ const CalcDMG = () => {
           onChange={event => onChangeHandler(event, setVoidDamageValue)}
           placeholder="0"
           value={voidDamageValue}
+        />
+      </div>
+      <div className={`void-container-resist ${voidDamageValue > 0 ? 'show' : ''}`}>
+        <p className="text-up">🖕</p>
+        <input
+          type="number"
+          className="additional-damage  input-look"
+          onChange={event => onChangeHandler(event, setResistValueVoid)}
+          placeholder="0"
+          value={resistValueVoid}
         />
       </div>
     </>

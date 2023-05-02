@@ -130,9 +130,6 @@ input[type='number'] {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-.burn-container-resist.show {
-  opacity: 1;
-}
 
 /* cold damage */
 .cold-container {
@@ -140,6 +137,14 @@ input[type='number'] {
   bottom: 3%;
   left: 40%;
   transform: translate(-50%, -50%);
+}
+.cold-container-resist {
+  position: absolute;
+  bottom: 3%;
+  left: 44.2%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* poison damage */
@@ -149,6 +154,14 @@ input[type='number'] {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.poison-container-resist {
+  position: absolute;
+  bottom: 3%;
+  left: 54.2%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
 
 /* bleed damage */
 .bleed-container {
@@ -156,6 +169,14 @@ input[type='number'] {
   bottom: 3%;
   left: 60%;
   transform: translate(-50%, -50%);
+}
+.bleed-container-resist {
+  position: absolute;
+  bottom: 3%;
+  left: 64.2%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* void damage */
@@ -165,6 +186,23 @@ input[type='number'] {
   left: 70%;
   transform: translate(-50%, -50%);
 }
+
+.void-container-resist {
+  position: absolute;
+  bottom: 3%;
+  left: 74.2%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.burn-container-resist.show,
+.cold-container-resist.show,
+.poison-container-resist.show,
+.bleed-container-resist.show,
+.void-container-resist.show {
+  opacity: 1;
+}
 /* --------------------------------------------- */
 /* buttons that show up */
 .barier-button {
@@ -172,7 +210,7 @@ input[type='number'] {
   top: 18%;
   left: 40%;
   transform: translate(-50%, -50%);
-  color: #00003d;
+  color: #ffffff;
 
   background-image: linear-gradient(-45deg, #78d2af, #009f84, #45c65c, #01aebd, #ffee36);
   background-size: 400% 400%;
@@ -184,9 +222,22 @@ input[type='number'] {
   top: 18%;
   left: 49.4%;
   transform: translate(-50%, -50%);
-  color: #00003d;
+  color: #ffffff;
 
   background-image: linear-gradient(-45deg, #cacaca, #838383, #656565, #757575, #d2d2d2);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+.hp-button {
+  background-color: rgb(163, 0, 0);
+  position: absolute;
+  top: 18%;
+  left: 58.8%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+
+  background-image: linear-gradient(-45deg, #ff1b1b, #c70000, #b70000, #ff2121);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
@@ -201,19 +252,6 @@ input[type='number'] {
   100% {
     background-position: 0% 50%;
   }
-}
-
-.hp-button {
-  background-color: rgb(163, 0, 0);
-  position: absolute;
-  top: 18%;
-  left: 58.8%;
-  transform: translate(-50%, -50%);
-  color: #00003d;
-
-  background-image: linear-gradient(-45deg, #c50000, #8d0000, #720000, #910000, #cb0000);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
 }
 
 .reset-button-all {
@@ -261,6 +299,10 @@ input[type='number'] {
   overflow: scroll;
 }
 
+.list-group.left {
+  height: 20rem;
+}
+
 /* hide scrollbar but keep functionality */
 .list-group::-webkit-scrollbar {
   display: none;
@@ -281,13 +323,17 @@ input[type='number'] {
   background-color: #000000;
   border: #ffffff 1px solid;
   position: absolute;
-  right: 3.8%;
-  top: 78%;
-  width: 2.4rem;
+  width: 4.5rem;
+  top: 10.6rem;
+  left: -0.65rem;
+  border: none;
+  border-top: #646464 2px solid;
+  transform: translate(-50%, -50%);
+  border-radius: 0px;
 }
 
 .full-damage-list-div {
-  top: 47%;
+  top: 45.5%;
   left: 35%;
   position: absolute;
   transform: translate(-50%, -50%);
