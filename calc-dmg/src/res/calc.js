@@ -3,15 +3,17 @@ import human from './img/human.png';
 
 const CalcDMG = () => {
   // ---------------------------------- //
-  // buttons for barier,armor,hp
+  // buttons for barier,armor,hp, mana
   const [buttonValueBarier, setButtonValueBarier] = useState('');
   const [buttonValueArmor, setButtonValueArmor] = useState('');
   const [buttonValueHP, setButtonValueHP] = useState('');
+  const [buttonValueMana, setButtonValueMana] = useState('');
 
-  // storing values of inputs left and right
+  // storing values of inputs
   const [barierValue, setBarierValue] = useState('');
   const [armorValue, setArmorValue] = useState('');
   const [hpValue, setHpValue] = useState('');
+  const [manaValue, setManaValue] = useState('');
   const [damageValue, setDamageValue] = useState('');
 
   // storing values of addicional damage
@@ -64,9 +66,11 @@ const CalcDMG = () => {
     setBarierValue('');
     setArmorValue('');
     setHpValue('');
+    setManaValue('');
     setButtonValueBarier('');
     setButtonValueArmor('');
     setButtonValueHP('');
+    setButtonValueMana('');
     setHistoryHolderBarrier([]);
     setHistoryHolderArmor([]);
     setHistoryHolderHP([]);
@@ -98,7 +102,7 @@ const CalcDMG = () => {
 
   // on Reset clear colors of all inputs
   const effectBackToWhite =
-    (barierValue || armorValue || hpValue) === '' ? 'buttonValueBarier' : '';
+    (barierValue || armorValue || hpValue || manaValue) === '' ? 'buttonValueBarier' : '';
 
   useEffect(() => {
     const inputElems = document.querySelectorAll('.input-look');
@@ -177,6 +181,19 @@ const CalcDMG = () => {
   return (
     <>
       <img src={human} alt="something" className="human-img" />
+
+      {/* -----------------ResetButtonsUPLeft----------------- */}
+      <button className="button-look reset-button-all" onDoubleClick={resetOnClickAll}>
+        RESET ALL
+        <p className="reset-button-all-disclaimer">(double click)</p>
+      </button>
+
+      <button className="button-look reset-button-damage" onClick={resetOnClickDamage}>
+        RESET DAMAGE
+      </button>
+      {/* ---------------------------------------------------- */}
+
+      {/* -----------------RightSideInputs----------------- */}
       {/* -----------------BARIER----------------- */}
       <div className="barrier-container">
         <p className="text-up">Barrier</p>
@@ -188,7 +205,7 @@ const CalcDMG = () => {
             handlerKeyDown(
               event,
               '.barrier-input',
-              'rgb(0, 103, 141)',
+              'rgb(0, 243, 186)',
               setButtonValueBarier,
               barierValue
             )
@@ -209,7 +226,6 @@ const CalcDMG = () => {
       ) : (
         ''
       )}
-
       {/* -----------------ARMOR----------------- */}
       <div className="armor-container">
         <p className="text-up">Armor</p>
@@ -265,7 +281,36 @@ const CalcDMG = () => {
       ) : (
         ''
       )}
+      {/* -----------------Mana----------------- */}
+      <div className="mana-container">
+        <p className="text-up">Mana</p>
+        <input
+          type="number"
+          className="mana-input input-look"
+          onChange={event => onChangeHandler(event, setManaValue)}
+          onKeyDown={event =>
+            handlerKeyDown(event, '.mana-input', 'rgb(0, 204, 255)', setButtonValueMana, manaValue)
+          }
+          placeholder="Enter"
+          value={manaValue}
+        />
+      </div>
+      {buttonValueMana > 0 ? (
+        <div>
+          <button
+            className="button-look mana-button"
+            value={buttonValueMana}
+            onClick={() => setButtonValueMana(buttonValueMana - 1)}>
+            {buttonValueMana}
+          </button>
+        </div>
+      ) : (
+        ''
+      )}
 
+      {/* ---------------------------------------------------- */}
+
+      {/* -----------------LeftSideInputs----------------- */}
       {/* -----------------Damage----------------- */}
       <div className="damage-container">
         <p className="text-up">Damage</p>
@@ -277,8 +322,7 @@ const CalcDMG = () => {
           value={damageValue}
         />
       </div>
-
-      {/* -----------------Resistance----------------- */}
+      {/* -----------------ResistanceDamage----------------- */}
       <div className="resist-container-damage">
         <p className="text-up">Resist.%</p>
         <input
@@ -289,14 +333,8 @@ const CalcDMG = () => {
           value={resistValueDamage}
         />
       </div>
-      {/* -----------------ButtonReset----------------- */}
-      <button className="button-look reset-button-all" onDoubleClick={resetOnClickAll}>
-        RESET ALL
-        <p className="reset-button-all-disclaimer">(double click)</p>
-      </button>
-      <button className="button-look reset-button-damage" onClick={resetOnClickDamage}>
-        RESET DAMAGE
-      </button>
+      {/* ---------------------------------------------------- */}
+
       {/* -----------------DamageList----------------- */}
       <div className="full-damage-list-div">
         <ul className="list-group left">
@@ -359,14 +397,14 @@ const CalcDMG = () => {
           )}
           {/* -----------------ValueShowButton----------------- */}
         </ul>
-        <button className="button-list-damage move button-look">
+        <button className="button-list-damage move button-look ">
           {fullValueDamage ? fullValueDamage : '0'}
         </button>
       </div>
 
       {/* -----------------HostoryDamageList----------------- */}
       <div className="history-damage-list-div">
-        <ul className="list-group list-group-history">
+        <ul className="list-group right">
           <li>
             <p className="full-damage-text-up">HISTORY</p>
           </li>
@@ -376,6 +414,7 @@ const CalcDMG = () => {
         </ul>
       </div>
 
+      {/* -----------------BottomSideInputs----------------- */}
       {/* -----------------Burn----------------- */}
       <div className="burn-container">
         <p className="text-up">🔥</p>
@@ -483,6 +522,7 @@ const CalcDMG = () => {
           value={resistValueVoid}
         />
       </div>
+      {/* ---------------------------------------------------- */}
     </>
   );
 };

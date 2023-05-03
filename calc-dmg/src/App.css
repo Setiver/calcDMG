@@ -20,6 +20,7 @@ input::-webkit-inner-spin-button {
 /* this one is for mozilla */
 input[type='number'] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 /* input look */
@@ -67,42 +68,50 @@ input[type='number'] {
 .armor-input,
 .hp-input,
 .damage-input,
-.resist-input {
+.resist-input,
+.mana-input {
   position: relative;
 }
 
 .barrier-container {
   position: absolute;
   right: 10%;
-  top: 34%;
+  top: 26%;
   transform: translate(-50%, -50%);
 }
 
 .armor-container {
   position: absolute;
   right: 10%;
-  top: 47%;
+  top: 39%;
   transform: translate(-50%, -50%);
 }
 
 .hp-container {
   position: absolute;
   right: 10%;
-  top: 60%;
+  top: 52%;
+  transform: translate(-50%, -50%);
+}
+
+.mana-container {
+  position: absolute;
+  right: 10%;
+  top: 65%;
   transform: translate(-50%, -50%);
 }
 
 .damage-container {
   position: absolute;
   top: 40%;
-  left: 20%;
+  left: 21.8%;
   transform: translate(-50%, -50%);
 }
 
 .resist-container-damage {
   position: absolute;
   top: 55%;
-  left: 20%;
+  left: 21.8%;
   transform: translate(-50%, -50%);
 }
 
@@ -213,6 +222,7 @@ input[type='number'] {
   color: #ffffff;
 
   background-image: linear-gradient(-45deg, #78d2af, #009f84, #45c65c, #01aebd, #ffee36);
+
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
@@ -230,7 +240,6 @@ input[type='number'] {
 }
 
 .hp-button {
-  background-color: rgb(163, 0, 0);
   position: absolute;
   top: 18%;
   left: 58.8%;
@@ -238,6 +247,21 @@ input[type='number'] {
   color: #ffffff;
 
   background-image: linear-gradient(-45deg, #ff1b1b, #c70000, #ff2121, #b70000, #ff2121);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+}
+
+.mana-button {
+  background-color: rgb(163, 0, 0);
+  position: absolute;
+  top: 11%;
+  left: 49.2%;
+  width: 25rem;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+
+  background-image: linear-gradient(-45deg, #00e1ff, #0095c7, #2164ff, #0debff, #00b2fe);
+
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
@@ -292,25 +316,38 @@ input[type='number'] {
   left: 35%;
   transform: translate(-50%, -50%);
   list-style: none;
-  height: 22rem;
   width: 12rem;
   /* overflow hide if something is out of the box  */
   overflow: hidden;
   overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .list-group.left {
   height: 20rem;
 }
+.list-group.right {
+  height: 22.6rem;
+}
+
+.full-damage-list-div {
+  top: 45.5%;
+  left: 36%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.history-damage-list-div {
+  top: 47.7%;
+  left: 64%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
 
 /* hide scrollbar but keep functionality */
 .list-group::-webkit-scrollbar {
   display: none;
-}
-
-.list-group {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 .full-damage-text-up {
@@ -330,18 +367,18 @@ input[type='number'] {
   border-top: #646464 2px solid;
   transform: translate(-50%, -50%);
   border-radius: 0px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* hide any overflow */
+  text-overflow: ellipsis; /* add an ellipsis (...) to indicate truncated text */
+  white-space: nowrap; /* prevent text from wrapping */
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.full-damage-list-div {
-  top: 45.5%;
-  left: 35%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.history-damage-list-div {
-  top: 47%;
-  left: 64%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+.button-list-damage::-webkit-scrollbar {
+  display: none;
 }
