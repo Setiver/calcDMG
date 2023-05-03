@@ -221,6 +221,11 @@ input[type='number'] {
   left: 39.5%;
   transform: translate(-50%, -50%);
   color: #ffffff;
+  width: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background-image: linear-gradient(-45deg, #78d2af, #009f84, #45c65c, #01aebd, #ffee36);
 
@@ -234,6 +239,11 @@ input[type='number'] {
   left: 49.5%;
   transform: translate(-50%, -50%);
   color: #ffffff;
+  width: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background-image: linear-gradient(-45deg, #cacaca, #838383, #656565, #757575, #d2d2d2);
   background-size: 400% 400%;
@@ -246,6 +256,11 @@ input[type='number'] {
   left: 59.5%;
   transform: translate(-50%, -50%);
   color: #ffffff;
+  width: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background-image: linear-gradient(-45deg, #ff1b1b, #c70000, #ff2121, #b70000, #ff2121);
   background-size: 400% 400%;
@@ -260,6 +275,10 @@ input[type='number'] {
   width: 26rem;
   transform: translate(-50%, -50%);
   color: #ffffff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   background-image: linear-gradient(-45deg, #00e1ff, #0095c7, #2164ff, #0debff, #00b2fe);
 
