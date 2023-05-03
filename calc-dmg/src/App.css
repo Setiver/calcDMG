@@ -47,6 +47,7 @@ input[type='number'] {
   margin: 10px 10px;
   cursor: pointer;
   text-align: center;
+  border: #474747 1px solid;
 }
 
 .human-img {
@@ -126,14 +127,14 @@ input[type='number'] {
 /* burn damage */
 .burn-container {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 30%;
   transform: translate(-50%, -50%);
 }
 
 .burn-container-resist {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 34.2%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -143,13 +144,13 @@ input[type='number'] {
 /* cold damage */
 .cold-container {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 40%;
   transform: translate(-50%, -50%);
 }
 .cold-container-resist {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 44.2%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -159,13 +160,13 @@ input[type='number'] {
 /* poison damage */
 .poison-container {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .poison-container-resist {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 54.2%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -175,13 +176,13 @@ input[type='number'] {
 /* bleed damage */
 .bleed-container {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 60%;
   transform: translate(-50%, -50%);
 }
 .bleed-container-resist {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 64.2%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -191,14 +192,14 @@ input[type='number'] {
 /* void damage */
 .void-container {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 70%;
   transform: translate(-50%, -50%);
 }
 
 .void-container-resist {
   position: absolute;
-  bottom: 3%;
+  bottom: 2%;
   left: 74.2%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -217,7 +218,7 @@ input[type='number'] {
 .barier-button {
   position: absolute;
   top: 18%;
-  left: 40%;
+  left: 39.5%;
   transform: translate(-50%, -50%);
   color: #ffffff;
 
@@ -230,7 +231,7 @@ input[type='number'] {
 .armor-button {
   position: absolute;
   top: 18%;
-  left: 49.4%;
+  left: 49.5%;
   transform: translate(-50%, -50%);
   color: #ffffff;
 
@@ -242,7 +243,7 @@ input[type='number'] {
 .hp-button {
   position: absolute;
   top: 18%;
-  left: 58.8%;
+  left: 59.5%;
   transform: translate(-50%, -50%);
   color: #ffffff;
 
@@ -255,8 +256,8 @@ input[type='number'] {
   background-color: rgb(163, 0, 0);
   position: absolute;
   top: 11%;
-  left: 49.2%;
-  width: 25rem;
+  left: 49.5%;
+  width: 26rem;
   transform: translate(-50%, -50%);
   color: #ffffff;
 
