@@ -211,7 +211,7 @@ const CalcDMG = () => {
             )
           }
           placeholder="Enter"
-          value={barierValue}
+          value={barierValue > 0 ? barierValue : ''}
         />
       </div>
       {buttonValueBarier > 0 ? (
@@ -243,7 +243,7 @@ const CalcDMG = () => {
             )
           }
           placeholder="Enter"
-          value={armorValue}
+          value={armorValue > 0 ? armorValue : ''}
         />
       </div>
       {buttonValueArmor > 0 ? (
@@ -269,7 +269,7 @@ const CalcDMG = () => {
             handlerKeyDown(event, '.hp-input', 'rgb(163, 0, 0)', setButtonValueHP, hpValue)
           }
           placeholder="Enter"
-          value={hpValue}
+          value={hpValue > 0 ? hpValue : ''}
         />
       </div>
       {buttonValueHP > 0 ? (
@@ -292,7 +292,7 @@ const CalcDMG = () => {
             handlerKeyDown(event, '.mana-input', 'rgb(0, 204, 255)', setButtonValueMana, manaValue)
           }
           placeholder="Enter"
-          value={manaValue}
+          value={manaValue > 0 ? manaValue : ''}
         />
       </div>
       {buttonValueMana > 0 ? (
@@ -319,7 +319,7 @@ const CalcDMG = () => {
           className="damage-input input-look"
           onChange={event => onChangeHandler(event, setDamageValue)}
           placeholder="Click on buttons"
-          value={damageValue}
+          value={damageValue > 0 ? damageValue : ''}
         />
       </div>
       {/* -----------------ResistanceDamage----------------- */}
@@ -330,7 +330,7 @@ const CalcDMG = () => {
           className="resist-input input-look"
           onChange={event => onChangeHandler(event, setResistValueDamage)}
           placeholder="Click on buttons"
-          value={resistValueDamage}
+          value={resistValueDamage > 0 ? resistValueDamage : ''}
         />
       </div>
       {/* ---------------------------------------------------- */}
@@ -423,7 +423,7 @@ const CalcDMG = () => {
           className="additional-damage input-look"
           onChange={event => onChangeHandler(event, setBurnDamageValue)}
           placeholder="0"
-          value={burnDamageValue}
+          value={burnDamageValue > 0 ? burnDamageValue : ''}
         />
       </div>
       <div className={`burn-container-resist ${burnDamageValue > 0 ? 'show' : ''}`}>
@@ -433,7 +433,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueBurn)}
           placeholder="0"
-          value={resistValueBurn}
+          value={resistValueBurn > 0 ? resistValueBurn : ''}
         />
       </div>
 
@@ -445,7 +445,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setColdDamageValue)}
           placeholder="0"
-          value={coldDamageValue}
+          value={coldDamageValue > 0 ? coldDamageValue : ''}
         />
       </div>
       <div className={`cold-container-resist ${coldDamageValue > 0 ? 'show' : ''}`}>
@@ -455,7 +455,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueCold)}
           placeholder="0"
-          value={resistValueCold}
+          value={resistValueCold > 0 ? resistValueCold : ''}
         />
       </div>
 
@@ -467,7 +467,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setPoisonDamageValue)}
           placeholder="0"
-          value={poisonDamageValue}
+          value={poisonDamageValue > 0 ? poisonDamageValue : ''}
         />
       </div>
       <div className={`poison-container-resist ${poisonDamageValue > 0 ? 'show' : ''}`}>
@@ -477,7 +477,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValuePoison)}
           placeholder="0"
-          value={resistValuePoison}
+          value={resistValuePoison > 0 ? resistValuePoison : ''}
         />
       </div>
       {/* -----------------Bleed----------------- */}
@@ -488,7 +488,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setBleedDamageValue)}
           placeholder="0"
-          value={bleedDamageValue}
+          value={bleedDamageValue > 0 ? bleedDamageValue : ''}
         />
       </div>
       <div className={`bleed-container-resist ${bleedDamageValue > 0 ? 'show' : ''}`}>
@@ -498,7 +498,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueBleed)}
           placeholder="0"
-          value={resistValueBleed}
+          value={resistValueBleed > 0 ? resistValueBleed : ''}
         />
       </div>
       {/* -----------------Void----------------- */}
@@ -509,7 +509,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setVoidDamageValue)}
           placeholder="0"
-          value={voidDamageValue}
+          value={voidDamageValue > 0 ? voidDamageValue : ''}
         />
       </div>
       <div className={`void-container-resist ${voidDamageValue > 0 ? 'show' : ''}`}>
@@ -519,7 +519,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueVoid)}
           placeholder="0"
-          value={resistValueVoid}
+          value={resistValueVoid > 0 ? resistValueVoid : ''}
         />
       </div>
       {/* ---------------------------------------------------- */}
