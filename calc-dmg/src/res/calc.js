@@ -330,7 +330,7 @@ const CalcDMG = () => {
           className="resist-input input-look"
           onChange={event => onChangeHandler(event, setResistValueDamage)}
           placeholder="Click on buttons"
-          value={resistValueDamage > 0 ? resistValueDamage : ''}
+          value={resistValueDamage !== 0 ? resistValueDamage : ''}
         />
       </div>
       {/* ---------------------------------------------------- */}
@@ -340,7 +340,7 @@ const CalcDMG = () => {
         <ul className="list-group left">
           <p className="full-damage-text-up">DAMAGE</p>
           {damageValue > 0 ? <li className="list-group-item">⚔ Damage: {damageValue}</li> : ''}
-          {resistValueDamage > 0 ? (
+          {resistValueDamage !== 0 && resistValueDamage !== '' ? (
             <li className="list-group-item">🛡 Resistance: {resistValueDamage}%</li>
           ) : (
             ''
@@ -350,7 +350,7 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueBurn > 0 ? (
+          {resistValueBurn !== 0 && resistValueBurn !== '' ? (
             <li className="list-group-item">🚭 Burn Res: {resistValueBurn}%</li>
           ) : (
             ''
@@ -360,7 +360,7 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueCold > 0 ? (
+          {resistValueCold !== 0 && resistValueCold !== '' ? (
             <li className="list-group-item">🧥 Cold Res: {resistValueCold}%</li>
           ) : (
             ''
@@ -370,7 +370,7 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValuePoison > 0 ? (
+          {resistValuePoison !== 0 && resistValuePoison !== '' ? (
             <li className="list-group-item">💊 Poison Res: {resistValuePoison}%</li>
           ) : (
             ''
@@ -385,12 +385,12 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {voidDamageValue > 0 ? (
+          {resistValueBleed !== 0 && resistValueBleed !== '' ? (
             <li className="list-group-item"> 👾 Void: {voidDamageValue}</li>
           ) : (
             ''
           )}
-          {resistValueVoid > 0 ? (
+          {resistValueVoid !== 0 && resistValueVoid !== '' ? (
             <li className="list-group-item">🖕 Void Res: {resistValueVoid}%</li>
           ) : (
             ''
@@ -433,7 +433,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueBurn)}
           placeholder="0"
-          value={resistValueBurn > 0 ? resistValueBurn : ''}
+          value={resistValueBurn !== 0 && resistValueBurn !== '' ? resistValueBurn : ''}
         />
       </div>
 
@@ -455,7 +455,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueCold)}
           placeholder="0"
-          value={resistValueCold > 0 ? resistValueCold : ''}
+          value={resistValueCold !== 0 && resistValueCold !== '' ? resistValueCold : ''}
         />
       </div>
 
@@ -477,7 +477,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValuePoison)}
           placeholder="0"
-          value={resistValuePoison > 0 ? resistValuePoison : ''}
+          value={resistValuePoison !== 0 && resistValuePoison !== '' ? resistValuePoison : ''}
         />
       </div>
       {/* -----------------Bleed----------------- */}
@@ -498,7 +498,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueBleed)}
           placeholder="0"
-          value={resistValueBleed > 0 ? resistValueBleed : ''}
+          value={resistValueBleed !== 0 && resistValueBleed !== '' ? resistValueBleed : ''}
         />
       </div>
       {/* -----------------Void----------------- */}
@@ -519,7 +519,7 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueVoid)}
           placeholder="0"
-          value={resistValueVoid > 0 ? resistValueVoid : ''}
+          value={resistValueVoid !== 0 && resistValueVoid !== '' ? resistValueVoid : ''}
         />
       </div>
       {/* ---------------------------------------------------- */}

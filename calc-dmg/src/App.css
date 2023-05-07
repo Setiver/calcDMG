@@ -25,29 +25,26 @@ input[type='number'] {
 
 /* input look */
 .input-look {
-  padding: 7px;
+  padding: 0.45rem;
   width: 13rem;
   height: 2rem;
-  font-size: 25px;
-  border-width: 2px;
+  font-size: 1.55rem;
+  border-width: 0.15rem;
   border-color: #cccccc;
   background-color: #ffffff;
   color: #000000;
   border-style: solid;
-  border-radius: 2px;
-  box-shadow: 0px 0px 12px rgba(66, 66, 66, 0.61);
 }
 
 .button-look {
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: inherit;
-  padding: 10px 60px;
-  border-radius: 5px;
-  margin: 10px 10px;
+  padding: 0.6rem 3.75rem;
+  margin: 0.65rem 0.65rem;
   cursor: pointer;
   text-align: center;
-  border: #474747 1px solid;
+  border: #474747 0.1rem solid;
 }
 
 .human-img {
@@ -300,7 +297,7 @@ input[type='number'] {
 
 .reset-button-all {
   background-color: rgb(0, 0, 0);
-  padding: 10px 0px;
+  padding: 0.6rem 0.05rem;
   width: 13rem;
 }
 .reset-button-all-disclaimer {
@@ -310,7 +307,7 @@ input[type='number'] {
 
 .reset-button-damage {
   background-color: rgb(0, 0, 0);
-  padding: 10px 0px;
+  padding: 0.6rem 0.05rem;
   width: 13rem;
   height: 2.5rem;
   position: absolute;
@@ -321,7 +318,7 @@ input[type='number'] {
 
 /* list of all damages */
 .list-group-item {
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 0.1rem solid rgb(0, 0, 0);
   list-style: none;
   display: block;
   font-size: 1.2rem;
@@ -373,20 +370,18 @@ input[type='number'] {
 .full-damage-text-up {
   font-size: 2rem;
   text-align: center;
-  border-bottom: #646464 2px solid;
+  border-bottom: #646464 0.15rem solid;
 }
 
 .button-list-damage {
   background-color: #000000;
-  border: #ffffff 1px solid;
   position: absolute;
   width: 4.5rem;
   top: 10.6rem;
   left: -0.65rem;
   border: none;
-  border-top: #646464 2px solid;
+  border-top: #646464 0.15rem solid;
   transform: translate(-50%, -50%);
-  border-radius: 0px;
   text-align: center;
   display: flex;
   justify-content: center;
