@@ -180,8 +180,6 @@ const CalcDMG = () => {
 
   return (
     <>
-      <img src={human} alt="something" className="human-img" />
-
       {/* -----------------ResetButtonsUPLeft----------------- */}
       <button className="button-look reset-button-all" onDoubleClick={resetOnClickAll}>
         RESET ALL
