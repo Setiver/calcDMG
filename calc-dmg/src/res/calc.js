@@ -62,6 +62,8 @@ const CalcDMG = () => {
     setPoisonDamageValue('');
     setBleedDamageValue('');
     setVoidDamageValue('');
+    setHealValue('');
+    setRollValue('Roll');
     resistsAllHolder();
   };
 
@@ -195,7 +197,7 @@ const CalcDMG = () => {
   };
 
   const diceRollNumber = () => {
-    const numberRoll = Math.trunc(Math.random() * 100) + 1;
+    let numberRoll = Math.trunc(Math.random() * 100) + 1;
     if ([47, 69, 7, 95, 13, 88, 9, 76, 23, 55, 31, 74, 8, 100, 3].includes(numberRoll)) {
       setRollValue(Number(numberRoll));
       document.querySelector('.number-dice-roll').style.backgroundColor = 'green';
@@ -410,7 +412,10 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueCold !== 0 && resistValueCold !== '' && resistValueCold <= 100 ? (
+          {resistValueCold !== 0 &&
+          resistValueCold !== '' &&
+          resistValueCold <= 100 &&
+          coldDamageValue !== 0 ? (
             <li className="list-group-item">🧥 Cold Res: {resistValueCold}%</li>
           ) : (
             ''
@@ -420,7 +425,10 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValuePoison !== 0 && resistValuePoison !== '' && resistValuePoison <= 100 ? (
+          {resistValuePoison !== 0 &&
+          resistValuePoison !== '' &&
+          resistValuePoison <= 100 &&
+          poisonDamageValue !== 0 ? (
             <li className="list-group-item">💊 Poison Res: {resistValuePoison}%</li>
           ) : (
             ''
@@ -430,7 +438,10 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueBleed !== 0 && resistValueBleed !== '' && resistValueBleed <= 100 ? (
+          {resistValueBleed !== 0 &&
+          resistValueBleed !== '' &&
+          resistValueBleed <= 100 &&
+          bleedDamageValue !== 0 ? (
             <li className="list-group-item">🩹 Bleed Res: {resistValueBleed}%</li>
           ) : (
             ''
@@ -440,7 +451,10 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueVoid !== 0 && resistValueVoid !== '' && resistValueVoid <= 100 ? (
+          {resistValueVoid !== 0 &&
+          resistValueVoid !== '' &&
+          resistValueVoid <= 100 &&
+          voidDamageValue !== 0 ? (
             <li className="list-group-item">🚫 Void Res: {resistValueVoid}%</li>
           ) : (
             ''
@@ -593,7 +607,7 @@ const CalcDMG = () => {
         />
       </div>
       {/* ---------------------------------------------------- */}
-      {/* ---------------------------------------------------- */}
+
       {/* -----------------DiceRoll----------------- */}
       <div className="div-dice-roll">
         <button className="number-dice-roll button-look" onClick={diceRollNumber} value={rollValue}>
