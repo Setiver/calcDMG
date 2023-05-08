@@ -37,6 +37,10 @@ const CalcDMG = () => {
   const [historyHolderBarrier, setHistoryHolderBarrier] = useState([]);
   const [historyHolderArmor, setHistoryHolderArmor] = useState([]);
   const [historyHolderHP, setHistoryHolderHP] = useState([]);
+
+  // roll number holder
+  const [rollValue, setRollValue] = useState('Roll');
+  const [trialValue, setTrialValue] = useState('');
   // ---------------------------------- //
 
   // keep all resists for reset button
@@ -73,6 +77,8 @@ const CalcDMG = () => {
     setHistoryHolderBarrier([]);
     setHistoryHolderArmor([]);
     setHistoryHolderHP([]);
+    setRollValue('Roll');
+    setTrialValue('');
     damageAllHolder();
     resistsAllHolder();
   };
@@ -90,7 +96,7 @@ const CalcDMG = () => {
 
   // change color of input whene hit Enter and give button a value
   const handlerKeyDown = (event, selector, color, setValueButton, valueButton) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === 'Enter') {
       event.preventDefault();
       if (valueButton > 0) {
         document.querySelector(selector).style.backgroundColor = color;
@@ -170,6 +176,19 @@ const CalcDMG = () => {
     return <div>{historia}</div>;
   };
 
+  const diceRollNumber = () => {
+    const numberRoll = Math.trunc(Math.random() * 100) + 1;
+    setRollValue(Number(numberRoll + trialValue));
+    console.log(numberRoll);
+    console.log(trialValue);
+  };
+
+  useEffect(() => {
+    if ([47, 69, 7, 95].includes(rollValue)) {
+      console.log('yes');
+    }
+  }, [rollValue]);
+
   // -------------------------------------------------------------------- //
   // -------------------------------------------------------------------- //
   // -------------------------------------------------------------------- //
@@ -180,14 +199,16 @@ const CalcDMG = () => {
   return (
     <>
       {/* -----------------ResetButtonsUPLeft----------------- */}
-      <button className="button-look reset-button-all" onDoubleClick={resetOnClickAll}>
-        RESET ALL
-        <p className="reset-button-all-disclaimer">(double click)</p>
-      </button>
+      <div className="reset-position">
+        <button className="button-look reset-button-all" onDoubleClick={resetOnClickAll}>
+          RESET ALL
+          <p className="reset-button-all-disclaimer">(double click)</p>
+        </button>
 
-      <button className="button-look reset-button-damage" onClick={resetOnClickDamage}>
-        RESET DAMAGE
-      </button>
+        <button className="button-look reset-button-damage" onClick={resetOnClickDamage}>
+          RESET DAMAGE
+        </button>
+      </div>
       {/* ---------------------------------------------------- */}
 
       {/* -----------------RightSideInputs----------------- */}
@@ -520,6 +541,20 @@ const CalcDMG = () => {
         />
       </div>
       {/* ---------------------------------------------------- */}
+      {/* ---------------------------------------------------- */}
+      {/* -----------------DiceRoll----------------- */}
+      <div className="div-dice-roll">
+        <button className="number-dice-roll button-look" onClick={diceRollNumber} value={rollValue}>
+          {rollValue}
+        </button>
+        <input
+          type="number"
+          className="input-look trial"
+          onChange={event => onChangeHandler(event, setTrialValue)}
+          value={trialValue !== 0 ? trialValue : ''}
+          placeholder="TRIAL"
+        />
+      </div>
     </>
   );
 };

@@ -311,10 +311,14 @@
     padding: 0.6rem 0.05rem;
     width: 13rem;
     height: 2.5rem;
+  }
+  .reset-position {
     position: absolute;
-    top: 11%;
-    left: 5.5%;
+    top: 9%;
+    left: 6%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
   }
 
   /* list of all damages */
@@ -397,5 +401,30 @@
 
   .button-list-damage::-webkit-scrollbar {
     display: none;
+  }
+
+  .div-dice-roll {
+    position: absolute;
+    border: #000000 0.5rem solid;
+    left: 50%;
+    top: 42.3%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+  }
+
+  .number-dice-roll {
+    background-color: #d57100;
+    color: #000000;
+    font-size: 10rem;
+    height: 12rem;
+    width: 17rem;
+    padding: 0rem;
+    margin: 0rem;
+    text-align: center;
+  }
+
+  .input-look.trial {
+    width: 16rem;
   }
 }
