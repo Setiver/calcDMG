@@ -14,6 +14,7 @@ const CalcDMG = () => {
   const [hpValue, setHpValue] = useState('');
   const [manaValue, setManaValue] = useState('');
   const [damageValue, setDamageValue] = useState('');
+  const [healValue, setHealValue] = useState('');
 
   // storing values of addicional damage
   const [burnDamageValue, setBurnDamageValue] = useState('');
@@ -121,18 +122,35 @@ const CalcDMG = () => {
       Number(
         Math.trunc(
           damageValue -
-            damageValue * (resistValueDamage * 0.01) -
-            -(burnDamageValue - burnDamageValue * (resistValueBurn * 0.01)) -
-            -(coldDamageValue - coldDamageValue * (resistValueCold * 0.01)) -
-            -(poisonDamageValue - poisonDamageValue * (resistValuePoison * 0.01)) -
-            -(bleedDamageValue - bleedDamageValue * (resistValueBleed * 0.01)) -
-            -(voidDamageValue - voidDamageValue * (resistValueVoid * 0.01))
+            damageValue * (resistValueDamage <= 100 ? resistValueDamage * 0.01 : '') -
+            healValue -
+            -(
+              burnDamageValue -
+              burnDamageValue * (resistValueBurn <= 100 ? resistValueBurn * 0.01 : '')
+            ) -
+            -(
+              coldDamageValue -
+              coldDamageValue * (resistValueCold <= 100 ? resistValueCold * 0.01 : '')
+            ) -
+            -(
+              poisonDamageValue -
+              poisonDamageValue * (resistValuePoison <= 100 ? resistValuePoison * 0.01 : '')
+            ) -
+            -(
+              bleedDamageValue -
+              bleedDamageValue * (resistValueBleed <= 100 ? resistValueBleed * 0.01 : '')
+            ) -
+            -(
+              voidDamageValue -
+              voidDamageValue * (resistValueVoid <= 100 ? resistValueVoid * 0.01 : '')
+            )
         )
       )
     );
   }, [
     damageValue,
     resistValueDamage,
+    healValue,
     burnDamageValue,
     resistValueBurn,
     coldDamageValue,
@@ -152,15 +170,15 @@ const CalcDMG = () => {
     const armorButton = document.querySelector('.armor-button');
     const hpButton = document.querySelector('.hp-button');
 
-    if (clickOfButton === barierButton && fullValueDamage > 0) {
+    if (clickOfButton === barierButton) {
       setButtonValueBarier(buttonValueBarier - fullValueDamage);
       setHistoryHolderBarrier(historyHolderBarrier => historyHolderBarrier.concat(fullValueDamage));
     }
-    if (clickOfButton === armorButton && fullValueDamage > 0) {
+    if (clickOfButton === armorButton) {
       setButtonValueArmor(buttonValueArmor - fullValueDamage);
       setHistoryHolderArmor(historyHolderArmor => historyHolderArmor.concat(fullValueDamage));
     }
-    if (clickOfButton === hpButton && fullValueDamage > 0) {
+    if (clickOfButton === hpButton) {
       setButtonValueHP(buttonValueHP - fullValueDamage);
       setHistoryHolderHP(historyHolderHP => historyHolderHP.concat(fullValueDamage));
     }
@@ -178,16 +196,14 @@ const CalcDMG = () => {
 
   const diceRollNumber = () => {
     const numberRoll = Math.trunc(Math.random() * 100) + 1;
-    setRollValue(Number(numberRoll + trialValue));
-    console.log(numberRoll);
-    console.log(trialValue);
-  };
-
-  useEffect(() => {
-    if ([47, 69, 7, 95].includes(rollValue)) {
-      console.log('yes');
+    if ([47, 69, 7, 95, 13, 88, 9, 76, 23, 55, 31, 74, 8, 100, 3].includes(numberRoll)) {
+      setRollValue(Number(numberRoll));
+      document.querySelector('.number-dice-roll').style.backgroundColor = 'green';
+    } else {
+      setRollValue(Number(numberRoll + trialValue));
+      document.querySelector('.number-dice-roll').style.backgroundColor = 'rgb(213, 113, 0)';
     }
-  }, [rollValue]);
+  };
 
   // -------------------------------------------------------------------- //
   // -------------------------------------------------------------------- //
@@ -348,9 +364,21 @@ const CalcDMG = () => {
           className="resist-input input-look"
           onChange={event => onChangeHandler(event, setResistValueDamage)}
           placeholder="Click on buttons"
-          value={resistValueDamage !== 0 ? resistValueDamage : ''}
+          value={resistValueDamage !== 0 && resistValueDamage <= 100 ? resistValueDamage : ''}
         />
       </div>
+      {/* -----------------Heal----------------- */}
+      <div className="heal-container">
+        <p className="text-up">Heal</p>
+        <input
+          type="number"
+          className="heal-input input-look"
+          onChange={event => onChangeHandler(event, setHealValue)}
+          placeholder="Click on buttons"
+          value={healValue > 0 ? healValue : ''}
+        />
+      </div>
+
       {/* ---------------------------------------------------- */}
 
       {/* -----------------DamageList----------------- */}
@@ -358,17 +386,21 @@ const CalcDMG = () => {
         <ul className="list-group left">
           <p className="full-damage-text-up">DAMAGE</p>
           {damageValue > 0 ? <li className="list-group-item">⚔ Damage: {damageValue}</li> : ''}
-          {resistValueDamage !== 0 && resistValueDamage !== '' ? (
+          {resistValueDamage !== 0 && resistValueDamage !== '' && resistValueDamage <= 100 ? (
             <li className="list-group-item">🛡 Resistance: {resistValueDamage}%</li>
           ) : (
             ''
           )}
+          {healValue > 0 ? <li className="list-group-item">❤ Heal: {healValue}</li> : ''}
           {burnDamageValue > 0 ? (
             <li className="list-group-item">🔥 Burn: {burnDamageValue}</li>
           ) : (
             ''
           )}
-          {resistValueBurn !== 0 && resistValueBurn !== '' ? (
+          {resistValueBurn !== 0 &&
+          resistValueBurn !== '' &&
+          resistValueBurn <= 100 &&
+          burnDamageValue !== 0 ? (
             <li className="list-group-item">🚭 Burn Res: {resistValueBurn}%</li>
           ) : (
             ''
@@ -378,7 +410,7 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueCold !== 0 && resistValueCold !== '' ? (
+          {resistValueCold !== 0 && resistValueCold !== '' && resistValueCold <= 100 ? (
             <li className="list-group-item">🧥 Cold Res: {resistValueCold}%</li>
           ) : (
             ''
@@ -388,7 +420,7 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValuePoison !== 0 && resistValuePoison !== '' ? (
+          {resistValuePoison !== 0 && resistValuePoison !== '' && resistValuePoison <= 100 ? (
             <li className="list-group-item">💊 Poison Res: {resistValuePoison}%</li>
           ) : (
             ''
@@ -398,18 +430,18 @@ const CalcDMG = () => {
           ) : (
             ''
           )}
-          {resistValueBleed > 0 ? (
+          {resistValueBleed !== 0 && resistValueBleed !== '' && resistValueBleed <= 100 ? (
             <li className="list-group-item">🩹 Bleed Res: {resistValueBleed}%</li>
           ) : (
             ''
           )}
-          {resistValueBleed !== 0 && resistValueBleed !== '' ? (
+          {resistValueVoid > 0 ? (
             <li className="list-group-item"> 👾 Void: {voidDamageValue}</li>
           ) : (
             ''
           )}
-          {resistValueVoid !== 0 && resistValueVoid !== '' ? (
-            <li className="list-group-item">🖕 Void Res: {resistValueVoid}%</li>
+          {resistValueVoid !== 0 && resistValueVoid !== '' && resistValueVoid <= 100 ? (
+            <li className="list-group-item">🚫 Void Res: {resistValueVoid}%</li>
           ) : (
             ''
           )}
@@ -451,7 +483,11 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueBurn)}
           placeholder="0"
-          value={resistValueBurn !== 0 && resistValueBurn !== '' ? resistValueBurn : ''}
+          value={
+            resistValueBurn !== 0 && resistValueBurn !== '' && resistValueBurn <= 100
+              ? resistValueBurn
+              : ''
+          }
         />
       </div>
 
@@ -473,7 +509,11 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueCold)}
           placeholder="0"
-          value={resistValueCold !== 0 && resistValueCold !== '' ? resistValueCold : ''}
+          value={
+            resistValueCold !== 0 && resistValueCold !== '' && resistValueCold <= 100
+              ? resistValueCold
+              : ''
+          }
         />
       </div>
 
@@ -495,7 +535,11 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValuePoison)}
           placeholder="0"
-          value={resistValuePoison !== 0 && resistValuePoison !== '' ? resistValuePoison : ''}
+          value={
+            resistValuePoison !== 0 && resistValuePoison !== '' && resistValuePoison <= 100
+              ? resistValuePoison
+              : ''
+          }
         />
       </div>
       {/* -----------------Bleed----------------- */}
@@ -516,7 +560,11 @@ const CalcDMG = () => {
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueBleed)}
           placeholder="0"
-          value={resistValueBleed !== 0 && resistValueBleed !== '' ? resistValueBleed : ''}
+          value={
+            resistValueBleed !== 0 && resistValueBleed !== '' && resistValueBleed <= 100
+              ? resistValueBleed
+              : ''
+          }
         />
       </div>
       {/* -----------------Void----------------- */}
@@ -531,13 +579,17 @@ const CalcDMG = () => {
         />
       </div>
       <div className={`void-container-resist ${voidDamageValue > 0 ? 'show' : ''}`}>
-        <p className="text-up">🖕</p>
+        <p className="text-up">🚫</p>
         <input
           type="number"
           className="additional-damage  input-look"
           onChange={event => onChangeHandler(event, setResistValueVoid)}
           placeholder="0"
-          value={resistValueVoid !== 0 && resistValueVoid !== '' ? resistValueVoid : ''}
+          value={
+            resistValueVoid !== 0 && resistValueVoid !== '' && resistValueVoid <= 100
+              ? resistValueVoid
+              : ''
+          }
         />
       </div>
       {/* ---------------------------------------------------- */}

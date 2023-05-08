@@ -68,6 +68,7 @@
   .hp-input,
   .damage-input,
   .resist-input,
+  .heal-input,
   .mana-input {
     position: relative;
   }
@@ -102,14 +103,21 @@
 
   .damage-container {
     position: absolute;
-    top: 40%;
+    top: 33.5%;
     left: 21.8%;
     transform: translate(-50%, -50%);
   }
 
   .resist-container-damage {
     position: absolute;
-    top: 55%;
+    top: 46.5%;
+    left: 21.8%;
+    transform: translate(-50%, -50%);
+  }
+
+  .heal-container {
+    position: absolute;
+    top: 59.5%;
     left: 21.8%;
     transform: translate(-50%, -50%);
   }
@@ -414,7 +422,7 @@
   }
 
   .number-dice-roll {
-    background-color: #d57100;
+    background-color: rgb(213, 113, 0);
     color: #000000;
     font-size: 10rem;
     height: 12rem;
