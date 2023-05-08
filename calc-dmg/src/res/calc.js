@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import human from './img/human.png';
 
 const CalcDMG = () => {
   // ---------------------------------- //
@@ -91,7 +90,7 @@ const CalcDMG = () => {
 
   // change color of input whene hit Enter and give button a value
   const handlerKeyDown = (event, selector, color, setValueButton, valueButton) => {
-    if (event.key === 'Enter') {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       if (valueButton > 0) {
         document.querySelector(selector).style.backgroundColor = color;
