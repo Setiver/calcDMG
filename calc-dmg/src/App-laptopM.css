@@ -1,4 +1,4 @@
-@media (min-width: 10px) and (max-width: 449px) {
+@media (min-width: 1101px) and (max-width: 1400px) {
   * {
     margin: 0;
     padding: 0;
@@ -27,9 +27,9 @@
   /* input look */
   .input-look {
     padding: 0.45rem;
-    width: 4rem;
-    height: 1rem;
-    font-size: 1.2rem;
+    width: 8rem;
+    height: 1.5rem;
+    font-size: 1.55rem;
     border-width: 0.15rem;
     border-color: #cccccc;
     background-color: #ffffff;
@@ -41,8 +41,8 @@
     color: white;
     font-size: 1rem;
     font-family: inherit;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0.5rem;
+    padding: 0.6rem 3.75rem;
+    margin: 0.65rem 0.65rem;
     cursor: pointer;
     text-align: center;
     border: #474747 0.1rem solid;
@@ -52,86 +52,89 @@
   .text-up {
     position: relative;
     bottom: 1%;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
   }
 
   .barrier-input,
   .armor-input,
   .hp-input,
+  .damage-input,
+  .resist-input,
+  .heal-input,
   .mana-input {
     position: relative;
   }
 
-  .damage-input,
-  .resist-input {
-    position: relative;
-    width: 8rem;
-  }
-
   .barrier-container {
     position: absolute;
-    right: 20%;
-    top: 4.8%;
+    right: 0%;
+    top: 25%;
     transform: translate(-50%, -50%);
   }
 
   .armor-container {
     position: absolute;
-    right: -9%;
-    top: 4.8%;
+    right: 0%;
+    top: 40%;
     transform: translate(-50%, -50%);
   }
 
   .hp-container {
     position: absolute;
-    right: 20%;
-    top: 14.8%;
+    right: 0%;
+    top: 55%;
     transform: translate(-50%, -50%);
   }
 
   .mana-container {
     position: absolute;
-    right: -9%;
-    top: 14.8%;
+    right: 0%;
+    top: 70%;
     transform: translate(-50%, -50%);
   }
 
   .damage-container {
     position: absolute;
-    top: 72%;
-    left: 25%;
+    top: 35%;
+    left: 10%;
     transform: translate(-50%, -50%);
   }
 
   .resist-container-damage {
     position: absolute;
-    top: 72%;
-    left: 75%;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  .heal-container {
+    position: absolute;
+    top: 65%;
+    left: 10%;
     transform: translate(-50%, -50%);
   }
 
   /* all those little squares on bottom */
   .additional-damage {
-    width: 1rem;
-    height: 1rem;
-    font-size: 0.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
     text-align: center;
   }
 
   /* burn damage */
   .burn-container {
     position: absolute;
-    bottom: 5.5%;
-    left: 20%;
+    bottom: -5%;
+    left: 26%;
     transform: translate(-50%, -50%);
   }
 
   .burn-container-resist {
     position: absolute;
     bottom: -5%;
-    text-align: center;
-    left: 20%;
+    left: 31.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -140,14 +143,14 @@
   /* cold damage */
   .cold-container {
     position: absolute;
-    bottom: 5.5%;
-    left: 35%;
+    bottom: -5%;
+    left: 38%;
     transform: translate(-50%, -50%);
   }
   .cold-container-resist {
     position: absolute;
     bottom: -5%;
-    left: 35%;
+    left: 43.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -156,14 +159,14 @@
   /* poison damage */
   .poison-container {
     position: absolute;
-    bottom: 5.5%;
+    bottom: -5%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   .poison-container-resist {
     position: absolute;
     bottom: -5%;
-    left: 50%;
+    left: 55.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -172,14 +175,14 @@
   /* bleed damage */
   .bleed-container {
     position: absolute;
-    bottom: 5.5%;
-    left: 65%;
+    bottom: -5%;
+    left: 62%;
     transform: translate(-50%, -50%);
   }
   .bleed-container-resist {
     position: absolute;
     bottom: -5%;
-    left: 65%;
+    left: 67.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -188,15 +191,15 @@
   /* void damage */
   .void-container {
     position: absolute;
-    bottom: 5.5%;
-    left: 80%;
+    bottom: -5%;
+    left: 74%;
     transform: translate(-50%, -50%);
   }
 
   .void-container-resist {
     position: absolute;
     bottom: -5%;
-    left: 80%;
+    left: 79.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -213,11 +216,11 @@
   /* buttons that show up */
   .barier-button {
     position: absolute;
-    top: 55%;
-    left: 15%;
+    top: 12%;
+    left: 34.2%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    width: 4rem;
+    width: 1rem;
     height: 0.5rem;
     text-align: center;
     display: flex;
@@ -232,11 +235,11 @@
 
   .armor-button {
     position: absolute;
-    top: 55%;
-    left: 47.5%;
+    top: 12%;
+    left: 49.5%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    width: 4rem;
+    width: 1rem;
     height: 0.5rem;
     text-align: center;
     display: flex;
@@ -250,11 +253,11 @@
 
   .hp-button {
     position: absolute;
-    top: 55%;
-    left: 80%;
+    top: 12%;
+    left: 64.8%;
     transform: translate(-50%, -50%);
     color: #ffffff;
-    width: 4rem;
+    width: 1rem;
     height: 0.5rem;
     text-align: center;
     display: flex;
@@ -269,9 +272,9 @@
   .mana-button {
     background-color: rgb(163, 0, 0);
     position: absolute;
-    top: 62%;
-    left: 47.5%;
-    width: 17rem;
+    top: 5%;
+    left: 49.5%;
+    width: 24.8rem;
     height: 0.7rem;
     transform: translate(-50%, -50%);
     color: #ffffff;
@@ -301,7 +304,7 @@
   .reset-button-all {
     background-color: rgb(0, 0, 0);
     padding: 0.6rem 0.05rem;
-    width: 7rem;
+    width: 13rem;
   }
   .reset-button-all-disclaimer {
     color: #a9a9a9;
@@ -311,14 +314,14 @@
   .reset-button-damage {
     background-color: rgb(0, 0, 0);
     padding: 0.6rem 0.05rem;
-    width: 7rem;
+    width: 13rem;
     height: 2rem;
   }
+
   .reset-position {
     position: absolute;
-    top: 10%;
-    left: 20%;
-    transform: translate(-50%, -50%);
+    top: 0.5%;
+    left: 0.5%;
     display: flex;
     flex-direction: column;
   }
@@ -349,24 +352,22 @@
   }
 
   .list-group.left {
-    height: 10rem;
-    width: 9rem;
+    height: 16rem;
   }
   .list-group.right {
-    height: 12.1rem;
-    width: 9rem;
+    height: 18.6rem;
   }
 
   .full-damage-list-div {
-    top: 34%;
-    left: 26%;
+    top: 44.2%;
+    left: 37.3%;
     position: absolute;
     transform: translate(-50%, -50%);
   }
 
   .history-damage-list-div {
-    top: 36.9%;
-    left: 74%;
+    top: 47.7%;
+    left: 63.5%;
     position: absolute;
     transform: translate(-50%, -50%);
   }
@@ -377,7 +378,7 @@
   }
 
   .full-damage-text-up {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
     border-bottom: #646464 0.15rem solid;
   }
@@ -385,9 +386,9 @@
   .button-list-damage {
     background-color: #000000;
     position: absolute;
-    width: 7rem;
-    top: 5.5rem;
-    left: -0.5rem;
+    width: 4.5rem;
+    top: 8.6rem;
+    left: -0.65rem;
     border: none;
     border-top: #646464 0.15rem solid;
     transform: translate(-50%, -50%);
@@ -409,26 +410,26 @@
 
   .div-dice-roll {
     position: absolute;
-    border: #000000 0.4rem solid;
-    left: 50%;
-    top: 110%;
+    border: #000000 0.5rem solid;
+    left: 6%;
+    top: 80%;
     display: flex;
     flex-direction: column;
-    transform: translate(-50%, -50%);
   }
 
   .number-dice-roll {
     background-color: #d57100;
     color: #000000;
-    font-size: 1rem;
-    height: 3rem;
-    width: 4.5rem;
+    font-size: 2rem;
+    height: 4rem;
+    width: 5.5rem;
     padding: 0rem;
     margin: 0rem;
     text-align: center;
   }
 
   .input-look.trial {
-    width: 3.5rem;
+    width: 4.4rem;
+    height: 0.5rem;
   }
 }

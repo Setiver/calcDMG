@@ -228,6 +228,7 @@
     transform: translate(-50%, -50%);
     color: #ffffff;
     width: 2rem;
+    height: 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -246,6 +247,7 @@
     transform: translate(-50%, -50%);
     color: #ffffff;
     width: 2rem;
+    height: 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -263,6 +265,7 @@
     transform: translate(-50%, -50%);
     color: #ffffff;
     width: 2rem;
+    height: 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -279,6 +282,7 @@
     top: 11%;
     left: 49.5%;
     width: 26rem;
+    height: 1rem;
     transform: translate(-50%, -50%);
     color: #ffffff;
     text-align: center;

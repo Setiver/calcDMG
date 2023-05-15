@@ -97,9 +97,21 @@ const CalcDMG = () => {
     seter(Number(event.target.value));
   };
 
+  useEffect(() => {
+    const originalScrollPosition = window.pageYOffset;
+    window.scrollTo(0, originalScrollPosition);
+  }, []);
+
   // change color of input whene hit Enter and give button a value
   const handlerKeyDown = (event, selector, color, setValueButton, valueButton) => {
-    if (event.key === 'Enter') {
+    if (
+      event.key === 'Enter' ||
+      event.key === 'Done' ||
+      event.key === 'Go' ||
+      event.key === 'Tab' ||
+      event.key === 'Ok' ||
+      event.key === 'Return'
+    ) {
       event.preventDefault();
       if (valueButton > 0) {
         document.querySelector(selector).style.backgroundColor = color;
@@ -215,7 +227,7 @@ const CalcDMG = () => {
   // -------------------------------------------------------------------- //
 
   return (
-    <>
+    <div>
       {/* -----------------ResetButtonsUPLeft----------------- */}
       <div className="reset-position">
         <button className="button-look reset-button-all" onDoubleClick={resetOnClickAll}>
@@ -228,7 +240,6 @@ const CalcDMG = () => {
         </button>
       </div>
       {/* ---------------------------------------------------- */}
-
       {/* -----------------RightSideInputs----------------- */}
       {/* -----------------BARIER----------------- */}
       <div className="barrier-container">
@@ -250,18 +261,15 @@ const CalcDMG = () => {
           value={barierValue > 0 ? barierValue : ''}
         />
       </div>
-      {buttonValueBarier > 0 ? (
-        <div>
-          <button
-            className="button-look barier-button"
-            value={buttonValueBarier}
-            onClick={damageOnClick}>
-            {buttonValueBarier}
-          </button>
-        </div>
-      ) : (
-        ''
-      )}
+      <div>
+        <button
+          className="button-look barier-button"
+          value={buttonValueBarier}
+          onClick={damageOnClick}>
+          {buttonValueBarier}
+        </button>
+      </div>
+
       {/* -----------------ARMOR----------------- */}
       <div className="armor-container">
         <p className="text-up">Armor</p>
@@ -282,18 +290,15 @@ const CalcDMG = () => {
           value={armorValue > 0 ? armorValue : ''}
         />
       </div>
-      {buttonValueArmor > 0 ? (
-        <div>
-          <button
-            className="button-look armor-button"
-            value={buttonValueArmor}
-            onClick={damageOnClick}>
-            {buttonValueArmor}
-          </button>
-        </div>
-      ) : (
-        ''
-      )}
+      <div>
+        <button
+          className="button-look armor-button"
+          value={buttonValueArmor}
+          onClick={damageOnClick}>
+          {buttonValueArmor}
+        </button>
+      </div>
+
       {/* -----------------HP----------------- */}
       <div className="hp-container">
         <p className="text-up">HP</p>
@@ -308,15 +313,12 @@ const CalcDMG = () => {
           value={hpValue > 0 ? hpValue : ''}
         />
       </div>
-      {buttonValueHP > 0 ? (
-        <div>
-          <button className="button-look hp-button" value={buttonValueHP} onClick={damageOnClick}>
-            {buttonValueHP}
-          </button>
-        </div>
-      ) : (
-        ''
-      )}
+      <div>
+        <button className="button-look hp-button" value={buttonValueHP} onClick={damageOnClick}>
+          {buttonValueHP}
+        </button>
+      </div>
+
       {/* -----------------Mana----------------- */}
       <div className="mana-container">
         <p className="text-up">Mana</p>
@@ -331,21 +333,16 @@ const CalcDMG = () => {
           value={manaValue > 0 ? manaValue : ''}
         />
       </div>
-      {buttonValueMana > 0 ? (
-        <div>
-          <button
-            className="button-look mana-button"
-            value={buttonValueMana}
-            onClick={() => setButtonValueMana(buttonValueMana - 1)}>
-            {buttonValueMana}
-          </button>
-        </div>
-      ) : (
-        ''
-      )}
+      <div>
+        <button
+          className="button-look mana-button"
+          value={buttonValueMana}
+          onClick={() => setButtonValueMana(buttonValueMana - 1)}>
+          {buttonValueMana}
+        </button>
+      </div>
 
       {/* ---------------------------------------------------- */}
-
       {/* -----------------LeftSideInputs----------------- */}
       {/* -----------------Damage----------------- */}
       <div className="damage-container">
@@ -380,9 +377,7 @@ const CalcDMG = () => {
           value={healValue > 0 ? healValue : ''}
         />
       </div>
-
       {/* ---------------------------------------------------- */}
-
       {/* -----------------DamageList----------------- */}
       <div className="full-damage-list-div">
         <ul className="list-group left">
@@ -465,7 +460,6 @@ const CalcDMG = () => {
           {fullValueDamage ? fullValueDamage : '0'}
         </button>
       </div>
-
       {/* -----------------HostoryDamageList----------------- */}
       <div className="history-damage-list-div">
         <ul className="list-group right">
@@ -477,7 +471,6 @@ const CalcDMG = () => {
           <HistoryHandler type={'HP'} holder={historyHolderHP} />
         </ul>
       </div>
-
       {/* -----------------BottomSideInputs----------------- */}
       {/* -----------------Burn----------------- */}
       <div className="burn-container">
@@ -504,7 +497,6 @@ const CalcDMG = () => {
           }
         />
       </div>
-
       {/* -----------------Cold----------------- */}
       <div className="cold-container">
         <p className="text-up">❄️</p>
@@ -530,7 +522,6 @@ const CalcDMG = () => {
           }
         />
       </div>
-
       {/* -----------------Poison----------------- */}
       <div className="poison-container">
         <p className="text-up">🧪</p>
@@ -607,7 +598,6 @@ const CalcDMG = () => {
         />
       </div>
       {/* ---------------------------------------------------- */}
-
       {/* -----------------DiceRoll----------------- */}
       <div className="div-dice-roll">
         <button className="number-dice-roll button-look" onClick={diceRollNumber} value={rollValue}>
@@ -621,7 +611,7 @@ const CalcDMG = () => {
           placeholder="TRIAL"
         />
       </div>
-    </>
+    </div>
   );
 };
 

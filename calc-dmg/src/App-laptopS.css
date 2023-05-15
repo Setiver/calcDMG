@@ -1,4 +1,4 @@
-@media (min-width: 1401px) and (max-width: 1900px) {
+@media (min-width: 500px) and (max-width: 110px) {
   * {
     margin: 0;
     padding: 0;
@@ -68,50 +68,50 @@
 
   .barrier-container {
     position: absolute;
-    right: 5%;
+    right: 0%;
     top: 25%;
     transform: translate(-50%, -50%);
   }
 
   .armor-container {
     position: absolute;
-    right: 5%;
+    right: 0%;
     top: 40%;
     transform: translate(-50%, -50%);
   }
 
   .hp-container {
     position: absolute;
-    right: 5%;
+    right: 0%;
     top: 55%;
     transform: translate(-50%, -50%);
   }
 
   .mana-container {
     position: absolute;
-    right: 5%;
+    right: 0%;
     top: 70%;
     transform: translate(-50%, -50%);
   }
 
   .damage-container {
     position: absolute;
-    top: 40%;
-    left: 18%;
+    top: 32%;
+    left: 12%;
     transform: translate(-50%, -50%);
   }
 
   .resist-container-damage {
     position: absolute;
-    top: 55%;
-    left: 18%;
+    top: 47%;
+    left: 12%;
     transform: translate(-50%, -50%);
   }
 
   .heal-container {
     position: absolute;
-    top: 70%;
-    left: 18%;
+    top: 62%;
+    left: 12%;
     transform: translate(-50%, -50%);
   }
 
@@ -126,15 +126,15 @@
   /* burn damage */
   .burn-container {
     position: absolute;
-    bottom: -9%;
-    left: 28%;
+    bottom: -5%;
+    left: 26%;
     transform: translate(-50%, -50%);
   }
 
   .burn-container-resist {
     position: absolute;
-    bottom: -9%;
-    left: 33.2%;
+    bottom: -5%;
+    left: 31.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -143,14 +143,14 @@
   /* cold damage */
   .cold-container {
     position: absolute;
-    bottom: -9%;
-    left: 39%;
+    bottom: -5%;
+    left: 38%;
     transform: translate(-50%, -50%);
   }
   .cold-container-resist {
     position: absolute;
-    bottom: -9%;
-    left: 44.2%;
+    bottom: -5%;
+    left: 43.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -159,13 +159,13 @@
   /* poison damage */
   .poison-container {
     position: absolute;
-    bottom: -9%;
+    bottom: -5%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
   .poison-container-resist {
     position: absolute;
-    bottom: -9%;
+    bottom: -5%;
     left: 55.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -175,14 +175,14 @@
   /* bleed damage */
   .bleed-container {
     position: absolute;
-    bottom: -9%;
-    left: 61%;
+    bottom: -5%;
+    left: 62%;
     transform: translate(-50%, -50%);
   }
   .bleed-container-resist {
     position: absolute;
-    bottom: -9%;
-    left: 66.2%;
+    bottom: -5%;
+    left: 67.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -191,15 +191,15 @@
   /* void damage */
   .void-container {
     position: absolute;
-    bottom: -9%;
-    left: 72%;
+    bottom: -5%;
+    left: 74%;
     transform: translate(-50%, -50%);
   }
 
   .void-container-resist {
     position: absolute;
-    bottom: -9%;
-    left: 77.2%;
+    bottom: -5%;
+    left: 79.2%;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -274,7 +274,7 @@
     position: absolute;
     top: 5%;
     left: 49.5%;
-    width: 25.5rem;
+    width: 20.5rem;
     height: 0.7rem;
     transform: translate(-50%, -50%);
     color: #ffffff;
@@ -411,25 +411,25 @@
   .div-dice-roll {
     position: absolute;
     border: #000000 0.5rem solid;
-    left: 50.4%;
-    top: 42.3%;
+    left: 7%;
+    top: 80%;
     display: flex;
     flex-direction: column;
-    transform: translate(-50%, -50%);
   }
 
   .number-dice-roll {
     background-color: #d57100;
     color: #000000;
-    font-size: 3rem;
-    height: 4.5rem;
-    width: 6rem;
+    font-size: 2rem;
+    height: 4rem;
+    width: 5.5rem;
     padding: 0rem;
     margin: 0rem;
     text-align: center;
   }
 
   .input-look.trial {
-    width: 5rem;
+    width: 4.4rem;
+    height: 0.5rem;
   }
 }
